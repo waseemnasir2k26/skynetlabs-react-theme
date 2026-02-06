@@ -108,6 +108,68 @@ export default function HeroCarousel() {
           </svg>
         </motion.div>
       </div>
+
+      <style>{`
+        .hero {
+          position: relative;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          padding: var(--space-32) 0 var(--space-16);
+          overflow: hidden;
+          background: var(--gradient-dark);
+        }
+        .hero__background {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+        }
+        .hero__background canvas {
+          width: 100%;
+          height: 100%;
+        }
+        .hero__container {
+          position: relative;
+          z-index: 1;
+        }
+        .hero__indicators {
+          display: flex;
+          justify-content: center;
+          gap: var(--space-3);
+          margin-top: var(--space-12);
+        }
+        .hero__indicator {
+          width: 12px;
+          height: 12px;
+          border-radius: var(--radius-full);
+          background: var(--gray-700);
+          border: none;
+          cursor: pointer;
+          transition: all var(--duration-normal) var(--ease-out);
+        }
+        .hero__indicator.active {
+          background: var(--skynet-primary);
+          box-shadow: var(--shadow-glow-primary);
+          transform: scale(1.2);
+        }
+        .hero__indicator:hover:not(.active) {
+          background: var(--gray-500);
+        }
+        .hero__scroll-indicator {
+          position: absolute;
+          bottom: var(--space-8);
+          left: 50%;
+          transform: translateX(-50%);
+          color: var(--gray-400);
+          font-size: var(--text-sm);
+          text-align: center;
+        }
+        .hero__scroll-indicator svg {
+          width: 24px;
+          height: 24px;
+          margin-top: var(--space-2);
+        }
+      `}</style>
     </section>
   );
 }

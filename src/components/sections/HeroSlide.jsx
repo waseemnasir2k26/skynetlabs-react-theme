@@ -67,6 +67,50 @@ export default function HeroSlide({ slide, variants, direction }) {
           {slide.secondary.text}
         </Button>
       </motion.div>
+
+      <style>{`
+        .hero__slide {
+          text-align: center;
+          max-width: 900px;
+          margin: 0 auto;
+        }
+        .hero__subtitle {
+          display: inline-block;
+          font-size: var(--text-sm);
+          font-weight: var(--weight-semibold);
+          text-transform: uppercase;
+          letter-spacing: var(--tracking-widest);
+          color: var(--skynet-primary);
+          margin-bottom: var(--space-4);
+        }
+        .hero__title {
+          font-size: var(--text-hero);
+          font-weight: var(--weight-extrabold);
+          line-height: var(--leading-tight);
+          margin-bottom: var(--space-6);
+        }
+        .hero__description {
+          font-size: var(--text-xl);
+          color: var(--gray-300);
+          line-height: var(--leading-relaxed);
+          margin-bottom: var(--space-10);
+          max-width: 700px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .hero__buttons {
+          display: flex;
+          justify-content: center;
+          gap: var(--space-4);
+          flex-wrap: wrap;
+        }
+        @media (max-width: 640px) {
+          .hero__buttons {
+            flex-direction: column;
+            align-items: center;
+          }
+        }
+      `}</style>
     </motion.div>
   );
 }
