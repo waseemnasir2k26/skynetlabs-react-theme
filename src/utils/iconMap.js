@@ -25,6 +25,17 @@ export const iconMap = {
   content: '✍️',
   consulting: '💡',
   training: '🎓',
+  // Widget icons
+  bot: '🤖',
+  x: '✕',
+  whatsapp: '💬',
+  'message-circle': '💬',
+  send: '➤',
+  gift: '🎁',
+  lock: '🔒',
+  'alert-circle': '⚠️',
+  cart: '🛒',
+  crm: '📋',
 };
 
 export function getIcon(name) {
