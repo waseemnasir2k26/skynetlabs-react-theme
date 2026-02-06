@@ -75,6 +75,54 @@ export default function ServicesGrid({ limit, showFilter = true, showHeading = t
           )}
         </div>
       </Container>
+
+      <style>{`
+        .services-section {
+          padding: var(--space-24) 0;
+          background: var(--skynet-darker);
+        }
+        .services-filter {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: var(--space-3);
+          margin-bottom: var(--space-12);
+        }
+        .filter-btn {
+          padding: var(--space-3) var(--space-6);
+          background: var(--glass-bg);
+          border: 1px solid var(--glass-border);
+          border-radius: var(--radius-full);
+          color: var(--gray-300);
+          font-weight: var(--weight-medium);
+          cursor: pointer;
+          transition: all var(--duration-fast) var(--ease-out);
+        }
+        .filter-btn:hover {
+          border-color: var(--skynet-primary);
+          color: var(--white);
+        }
+        .filter-btn.active {
+          background: var(--skynet-primary);
+          border-color: var(--skynet-primary);
+          color: var(--white);
+        }
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: var(--space-8);
+        }
+        @media (max-width: 1024px) {
+          .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 640px) {
+          .services-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </section>
   );
 }
