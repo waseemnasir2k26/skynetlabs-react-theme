@@ -1,0 +1,25 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-animation': ['gsap', 'framer-motion'],
+          'vendor-three': ['three', '@react-three/fiber', '@react-three/drei'],
+          'vendor-utils': ['lottie-react', 'react-helmet-async', 'react-intersection-observer']
+        }
+      }
+    }
+  },
+  server: {
+    port: 5173,
+    strictPort: true,
+    cors: true
+  }
+});

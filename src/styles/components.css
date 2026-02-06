@@ -1,0 +1,89 @@
+/* Base component styles - buttons, cards, forms, badges */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-8);
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  border: none;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--white);
+  box-shadow: 0 4px 20px var(--skynet-primary-glow);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--skynet-primary-glow);
+}
+
+.btn-secondary {
+  background: var(--skynet-dark);
+  color: var(--white);
+  border: 2px solid var(--skynet-primary);
+}
+.btn-secondary:hover {
+  background: var(--skynet-primary);
+  box-shadow: 0 4px 20px var(--skynet-primary-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--glass-border);
+}
+.btn-outline:hover {
+  border-color: var(--skynet-primary);
+  background: var(--glass-bg);
+}
+
+.btn-sm { padding: var(--space-2) var(--space-4); font-size: var(--text-sm); }
+.btn-lg { padding: var(--space-6) var(--space-12); font-size: var(--text-lg); }
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+}
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: var(--space-4);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  transition: border-color var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out);
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--skynet-primary);
+  box-shadow: 0 0 0 3px var(--skynet-primary-glow);
+}
+.form-input::placeholder, .form-textarea::placeholder {
+  color: var(--gray-500);
+}
+.form-textarea { min-height: 150px; resize: vertical; }
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
