@@ -1,42 +1,38 @@
-import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Accordion({ items }) {
-  const [openIndex, setOpenIndex] = useState(null);
-
+export default function Accordion({ title, children, isOpen, onToggle }) {
   return (
-    <div className="accordion">
-      {items.map((item, index) => (
-        <div key={index} className={`accordion-item ${openIndex === index ? 'active' : ''}`}>
-          <button
-            className="accordion-header"
-            onClick={() => setOpenIndex(openIndex === index ? null : index)}
+    <div className={`accordion-item ${isOpen ? 'active' : ''}`}>
+      <button
+        className="accordion-header"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+      >
+        <span className="accordion-title">{title}</span>
+        <span className="accordion-icon">{isOpen ? '−' : '+'}</span>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="accordion-content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            <span className="accordion-title">{item.question || item.title}</span>
-            <span className="accordion-icon">{openIndex === index ? '−' : '+'}</span>
-          </button>
-          <AnimatePresence>
-            {openIndex === index && (
-              <motion.div
-                className="accordion-content"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <p>{item.answer || item.content}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      ))}
+            <p>{children}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <style>{`
         .accordion-item {
           background: var(--glass-bg);
           border: 1px solid var(--glass-border);
           border-radius: var(--radius-xl);
-          margin-bottom: var(--space-4);
           overflow: hidden;
+        }
+        .accordion-item.active {
+          border-color: var(--skynet-primary);
         }
         .accordion-header {
           width: 100%;
@@ -58,6 +54,10 @@ export default function Accordion({ items }) {
         .accordion-icon {
           font-size: var(--text-xl);
           color: var(--skynet-primary);
+          transition: transform var(--duration-normal);
+        }
+        .accordion-item.active .accordion-icon {
+          transform: rotate(180deg);
         }
         .accordion-content {
           padding: 0 var(--space-6) var(--space-6);
@@ -66,6 +66,7 @@ export default function Accordion({ items }) {
         .accordion-content p {
           margin: 0;
           color: var(--gray-300);
+          line-height: var(--leading-relaxed);
         }
       `}</style>
     </div>

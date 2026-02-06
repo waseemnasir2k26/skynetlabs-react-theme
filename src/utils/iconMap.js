@@ -36,6 +36,16 @@ export const iconMap = {
   'alert-circle': '⚠️',
   cart: '🛒',
   crm: '📋',
+  // Navigation & UI icons
+  image: '🖼️',
+  expand: '↗️',
+  'chevron-left': '‹',
+  'chevron-right': '›',
+  quote: '"',
+  chat: '💬',
+  blueprint: '📐',
+  plus: '+',
+  minus: '-',
 };
 
 export function getIcon(name) {

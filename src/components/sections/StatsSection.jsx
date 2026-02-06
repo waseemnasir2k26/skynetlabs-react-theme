@@ -35,6 +35,52 @@ export default function StatsSection() {
           ))}
         </div>
       </Container>
+
+      <style>{`
+        .stats-section {
+          padding: var(--space-16) 0;
+          background: var(--gradient-dark);
+          border-top: 1px solid var(--glass-border);
+          border-bottom: 1px solid var(--glass-border);
+        }
+        .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: var(--space-8);
+        }
+        .stat-item {
+          text-align: center;
+        }
+        .stat-item__value {
+          font-size: var(--text-h1);
+          font-weight: var(--weight-extrabold);
+          background: var(--gradient-primary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+        }
+        .stat-item__suffix {
+          font-size: var(--text-h3);
+        }
+        .stat-item__label {
+          color: var(--gray-400);
+          font-size: var(--text-base);
+          margin-top: var(--space-2);
+        }
+        @media (max-width: 1024px) {
+          .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 480px) {
+          .stats-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </section>
   );
 }

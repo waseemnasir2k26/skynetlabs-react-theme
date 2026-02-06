@@ -42,6 +42,53 @@ export default function CTASection({
           </div>
         </motion.div>
       </Container>
+
+      <style>{`
+        .cta-section {
+          position: relative;
+          padding: var(--space-32) 0;
+          overflow: hidden;
+        }
+        .cta-section__bg {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+        }
+        .cta-section__gradient {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at 50% 50%, rgba(19, 185, 115, 0.15) 0%, transparent 70%);
+        }
+        .cta-section__grid {
+          position: absolute;
+          inset: 0;
+          background-image: linear-gradient(rgba(19, 185, 115, 0.03) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(19, 185, 115, 0.03) 1px, transparent 1px);
+          background-size: 50px 50px;
+        }
+        .cta-section__content {
+          position: relative;
+          z-index: 1;
+          text-align: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .cta-section__title {
+          font-size: var(--text-h2);
+          margin-bottom: var(--space-6);
+        }
+        .cta-section__description {
+          font-size: var(--text-xl);
+          color: var(--gray-300);
+          margin-bottom: var(--space-10);
+        }
+        .cta-section__buttons {
+          display: flex;
+          justify-content: center;
+          gap: var(--space-4);
+          flex-wrap: wrap;
+        }
+      `}</style>
     </section>
   );
 }

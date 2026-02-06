@@ -66,6 +66,80 @@ export default function HowItWorks() {
           ))}
         </div>
       </Container>
+
+      <style>{`
+        .how-it-works {
+          padding: var(--space-24) 0;
+          background: var(--skynet-dark);
+        }
+        .steps-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: var(--space-6);
+        }
+        .step-card {
+          position: relative;
+          background: var(--skynet-surface);
+          border: 1px solid var(--glass-border);
+          border-radius: var(--radius-xl);
+          padding: var(--space-8);
+          text-align: center;
+        }
+        .step-card__number {
+          position: absolute;
+          top: var(--space-4);
+          left: var(--space-4);
+          font-size: var(--text-sm);
+          font-weight: var(--weight-bold);
+          color: var(--skynet-primary);
+        }
+        .step-card__icon {
+          width: 70px;
+          height: 70px;
+          background: var(--gradient-primary);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 32px;
+          margin: 0 auto var(--space-6);
+        }
+        .step-card__title {
+          font-size: var(--text-h5);
+          margin-bottom: var(--space-3);
+        }
+        .step-card__description {
+          color: var(--gray-400);
+          font-size: var(--text-sm);
+          line-height: var(--leading-relaxed);
+          margin: 0;
+        }
+        .step-connector {
+          display: none;
+        }
+        @media (min-width: 1025px) {
+          .step-connector {
+            display: flex;
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--skynet-primary);
+            font-size: 24px;
+            z-index: 1;
+          }
+        }
+        @media (max-width: 1024px) {
+          .steps-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 640px) {
+          .steps-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </section>
   );
 }

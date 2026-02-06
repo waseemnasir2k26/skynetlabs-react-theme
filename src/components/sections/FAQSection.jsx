@@ -52,6 +52,18 @@ export default function FAQSection() {
           ))}
         </div>
       </Container>
+
+      <style>{`
+        .faq-section {
+          padding: var(--space-24) 0;
+          background: var(--skynet-dark);
+        }
+        .faq-list {
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-4);
+        }
+      `}</style>
     </section>
   );
 }

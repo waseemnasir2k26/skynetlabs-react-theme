@@ -96,6 +96,72 @@ export default function PricingSection() {
           ))}
         </div>
       </Container>
+
+      <style>{`
+        .pricing-section {
+          padding: var(--space-24) 0;
+          background: var(--skynet-darker);
+        }
+        .pricing-toggle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--space-4);
+          margin-bottom: var(--space-12);
+        }
+        .pricing-toggle span {
+          color: var(--gray-400);
+          transition: color var(--duration-fast);
+        }
+        .pricing-toggle span.active {
+          color: var(--white);
+          font-weight: var(--weight-semibold);
+        }
+        .toggle-switch {
+          width: 56px;
+          height: 28px;
+          background: var(--glass-bg);
+          border: 1px solid var(--glass-border);
+          border-radius: var(--radius-full);
+          position: relative;
+          cursor: pointer;
+        }
+        .toggle-switch__slider {
+          position: absolute;
+          width: 22px;
+          height: 22px;
+          background: var(--skynet-primary);
+          border-radius: 50%;
+          top: 2px;
+          left: 2px;
+          transition: transform var(--duration-normal) var(--ease-out);
+        }
+        .toggle-switch.yearly .toggle-switch__slider {
+          transform: translateX(28px);
+        }
+        .save-badge {
+          background: var(--skynet-primary);
+          color: var(--skynet-dark);
+          padding: var(--space-1) var(--space-2);
+          border-radius: var(--radius-sm);
+          font-size: var(--text-xs);
+          font-weight: var(--weight-bold);
+          margin-left: var(--space-2);
+        }
+        .pricing-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: var(--space-8);
+          align-items: stretch;
+        }
+        @media (max-width: 1024px) {
+          .pricing-grid {
+            grid-template-columns: 1fr;
+            max-width: 400px;
+            margin: 0 auto;
+          }
+        }
+      `}</style>
     </section>
   );
 }
