@@ -61,4 +61,7 @@ export function useLead() {
   return context;
 }
 
+// Alias for components using useLeadContext
+export const useLeadContext = useLead;
+
 export default LeadContext;

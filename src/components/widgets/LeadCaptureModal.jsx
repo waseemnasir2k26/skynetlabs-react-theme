@@ -12,7 +12,7 @@ export default function LeadCaptureModal({
   toolName,
   onSuccess
 }) {
-  const { setLeadData, setHasCompletedLeadCapture } = useLeadContext();
+  const { captureLead } = useLeadContext();
   const { nonce, ajaxUrl } = useSiteData();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -77,8 +77,8 @@ export default function LeadCaptureModal({
       const data = await response.json();
 
       if (data.success) {
-        setLeadData(formData);
-        setHasCompletedLeadCapture(true);
+        // Also capture via LeadContext for session tracking
+        await captureLead(formData.email, formData.name, toolName || 'modal');
         onSuccess?.();
         onClose();
       } else {
